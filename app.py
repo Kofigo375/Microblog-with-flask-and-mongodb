@@ -1,11 +1,15 @@
 import datetime
+import os
 from flask import Flask, render_template, request
-from pymongo import MongoClient # to open up  a client side section to mongodb to connect our database
+from pymongo import MongoClient 
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def create_app():
     app = Flask(__name__)
-    client = MongoClient('mongodb+srv://kofigo375:375owass@cluster0.hddjfkn.mongodb.net/') 
-    app.db = client.Microblog # storing database in app
+    client = MongoClient(os.environ.get("MONGODB_URI"))   
+    app.db = client.Microblog 
 
 
     @app.route('/', methods=['GET', 'POST'])

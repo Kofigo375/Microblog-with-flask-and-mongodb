@@ -9,3 +9,4 @@ pymongo==4.3.3
 Werkzeug==2.3.3
 pymongo[srv]
 gunicorn
+python-dotenv
